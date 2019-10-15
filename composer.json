@@ -1,0 +1,17 @@
+{
+    "name": "damianlewis/oc-googlemaps-plugin",
+    "description": "Adds Google Maps to an October CMS website.",
+    "type": "october-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damian Lewis",
+            "email": "damian@damianlewis.co.uk",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0"
+    }
+}
