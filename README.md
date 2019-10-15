@@ -1,2 +1,2 @@
-# OctoberCMS Google Maps Plugin
-Adds a Google Map to an October CMS website.
+# Google Maps plugin for October
+Adds a Google Map to an October website.
