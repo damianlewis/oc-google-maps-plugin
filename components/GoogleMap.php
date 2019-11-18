@@ -9,6 +9,8 @@ use DamianLewis\GoogleMaps\Models\Settings;
 class GoogleMap extends ComponentBase
 {
     public $apiKey;
+    public $style;
+
     public function componentDetails()
     {
         return [
@@ -85,5 +87,6 @@ class GoogleMap extends ComponentBase
         }
 
         $this->apiKey = $settings->api_key;
+        $this->style = $settings->style;
     }
 }

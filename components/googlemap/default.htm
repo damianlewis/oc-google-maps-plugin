@@ -7,6 +7,9 @@
         var map = new google.maps.Map(document.getElementById('{{ __SELF__.property('id') }}'), {
             center: latLng,
             zoom: {{ __SELF__.property('zoom') }},
+            {% if (__SELF__.style) %}
+            styles: {{ __SELF__.style|raw }}
+            {% endif %}
         });
 
         {% if (__SELF__.property('showMarker')) and (__SELF__.property('icon')) %}
