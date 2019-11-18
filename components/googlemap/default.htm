@@ -7,6 +7,12 @@
         var map = new google.maps.Map(document.getElementById('{{ __SELF__.property('id') }}'), {
             center: latLng,
             zoom: {{ __SELF__.property('zoom') }},
+            zoomControl: {{ __SELF__.property('zoomControl') }},
+            mapTypeControl: {{ __SELF__.property('mapTypeControl') }},
+            streetViewControl: {{ __SELF__.property('streetViewControl') }},
+            rotateControl: {{ __SELF__.property('rotateControl') }},
+            scaleControl: {{ __SELF__.property('scaleControl') }},
+            fullscreenControl: {{ __SELF__.property('fullscreenControl') }},
             {% if (__SELF__.style) %}
             styles: {{ __SELF__.style|raw }}
             {% endif %}

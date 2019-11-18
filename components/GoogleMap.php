@@ -75,6 +75,42 @@ class GoogleMap extends ComponentBase
                 'type' => 'checkbox',
                 'group' => 'Maker'
             ],
+            'zoomControl' => [
+                'title' => 'Zoom Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
+            'mapTypeControl' => [
+                'title' => 'Map Type Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
+            'streetViewControl' => [
+                'title' => 'Street View Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
+            'rotateControl' => [
+                'title' => 'Rotate Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
+            'scaleControl' => [
+                'title' => 'Scale Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
+            'fullscreenControl' => [
+                'title' => 'Full Screen Control',
+                'default' => 'true',
+                'type' => 'checkbox',
+                'group' => 'Controls'
+            ],
         ];
     }
 
