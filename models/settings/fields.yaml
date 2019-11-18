@@ -1,0 +1,14 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    api_key:
+        label: Google Maps API key
+        comment: <a target="_blank" href="https://developers.google.com/maps/documentation/javascript/get-api-key">Get an API Key</a>
+        commentHtml: true
+    style:
+        label: Map Style
+        type: codeeditor
+        language: js
+        size: giant
