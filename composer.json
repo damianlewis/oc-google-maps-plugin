@@ -1,6 +1,6 @@
 {
     "name": "damianlewis/oc-googlemaps-plugin",
-    "description": "Adds Google Maps to an October CMS website.",
+    "description": "Provides Google Maps integration services for October CMS.",
     "type": "october-plugin",
     "license": "MIT",
     "authors": [
