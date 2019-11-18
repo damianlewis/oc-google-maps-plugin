@@ -1,3 +1,15 @@
-<p>This is the default markup for component GoogleMap</p>
+<div id="{{ __SELF__.property('id') }}"
+     style="width: {{ __SELF__.property('width') }}; height: {{ __SELF__.property('height') }};"></div>
+<script>
+    function initMap() {
+        var latLng = {lat: {{ __SELF__.property('latitude') }}, lng: {{ __SELF__.property('longitude') }}};
 
-<small>You can delete this file if you want</small>
+        var map = new google.maps.Map(document.getElementById('{{ __SELF__.property('id') }}'), {
+            center: latLng,
+            zoom: {{ __SELF__.property('zoom') }},
+        });
+
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap"
+        async defer></script>
