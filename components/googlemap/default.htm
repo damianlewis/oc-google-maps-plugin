@@ -9,6 +9,13 @@
             zoom: {{ __SELF__.property('zoom') }},
         });
 
+        {% if (__SELF__.property('showMarker')) and (__SELF__.property('icon')) %}
+        new google.maps.Marker({
+            position: latLng,
+            map: map,
+            icon: '{{ __SELF__.property('icon') }}'
+        });
+        {% endif %}
     }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap"

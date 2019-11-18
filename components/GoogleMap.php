@@ -61,6 +61,12 @@ class GoogleMap extends ComponentBase
                     'terrain' => 'Terrain'
                 ]
             ],
+            'icon' => [
+                'title' => 'Map Marker',
+                'description' => 'URL for image to use as the map maker',
+                'type' => 'string',
+                'group' => 'Maker'
+            ],
             'showMarker' => [
                 'title' => 'Show Marker',
                 'default' => 'true',
