@@ -25,7 +25,11 @@ class GoogleMap extends ComponentBase
             'id' => [
                 'title' => 'ID',
                 'default' => 'googleMap',
-                'description' => 'The ID of the element the map should attached to'
+                'description' => 'The ID of the element the map should attached to.'
+            ],
+            'class' => [
+                'title' => 'CSS Class',
+                'description' => 'The CSS class to add to the containing element.'
             ],
             'latitude' => [
                 'title' => 'Latitude',
@@ -39,12 +43,10 @@ class GoogleMap extends ComponentBase
             ],
             'width' => [
                 'title' => 'Width',
-                'default' => '100%',
                 'type' => 'string'
             ],
             'height' => [
                 'title' => 'Height',
-                'default' => '350px',
                 'type' => 'string'
             ],
             'zoom' => [
@@ -65,7 +67,7 @@ class GoogleMap extends ComponentBase
             ],
             'icon' => [
                 'title' => 'Map Marker',
-                'description' => 'URL for image to use as the map maker',
+                'description' => 'URL for image to use as the map maker.',
                 'type' => 'string',
                 'group' => 'Maker'
             ],
