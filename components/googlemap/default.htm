@@ -1,5 +1,8 @@
 <div id="{{ __SELF__.property('id') }}"
-     style="width: {{ __SELF__.property('width') }}; height: {{ __SELF__.property('height') }};"></div>
+     {% if (__SELF__.property('class')) %}class="{{ __SELF__.property('class') }}"{% endif %}
+     style="{% if (__SELF__.property('width')) %}width: {{ __SELF__.property('width') }};{% endif %}{% if (__SELF__.property('height')) %} height: {{ __SELF__.property('height') }};{% endif %}"></div>
+
+{% put gmscript %}
 <script>
     function initMap() {
         var latLng = {lat: {{ __SELF__.property('latitude') }}, lng: {{ __SELF__.property('longitude') }}};
@@ -27,5 +30,5 @@
         {% endif %}
     }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap"
-        async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap" async defer></script>
+{% endput %}
