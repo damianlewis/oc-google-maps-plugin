@@ -1,37 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianLewis\GoogleMaps;
 
 use DamianLewis\GoogleMaps\Components\GoogleMap;
 use DamianLewis\GoogleMaps\Models\Settings;
 use System\Classes\PluginBase;
+use System\Classes\SettingsManager;
 
 class Plugin extends PluginBase
 {
-    public function pluginDetails()
+    public function pluginDetails(): array
     {
         return [
             'name' => 'Google Maps',
-            'description' => 'Provides Google Maps integration services.',
+            'description' => 'Provides Google Maps integration.',
             'author' => 'Damian Lewis',
             'icon' => 'icon-map-o',
             'homepage' => 'https://github.com/damianlewis/oc-googlemaps-plugin'
         ];
     }
 
-    public function registerComponents()
+    public function registerComponents(): array
     {
         return [
             GoogleMap::class => 'googleMap'
         ];
     }
 
-    public function registerPermissions()
+    public function registerPermissions(): array
     {
         return [
-            'damianlewis.googlemaps.configure' => [
+            'damianlewis.googlemaps.access_settings' => [
                 'tab' => 'Google Maps',
-                'label' => 'Configure Google Maps access.'
+                'label' => 'Access Google Maps settings.'
             ]
         ];
     }
@@ -41,12 +44,11 @@ class Plugin extends PluginBase
         return [
             'settings' => [
                 'label' => 'Google Maps',
-                'description' => 'Configure Google Maps API access.',
+                'description' => 'Manage Google Maps configuration.',
                 'icon' => 'icon-map-o',
                 'class' => Settings::class,
-                'permissions' => ['damianlewis.googlemaps.configure'],
-                'keywords' => 'google, maps',
-                'order' => 601
+                'category' => SettingsManager::CATEGORY_MYSETTINGS,
+                'permissions' => ['damianlewis.googlemaps.access_settings']
             ]
         ];
     }

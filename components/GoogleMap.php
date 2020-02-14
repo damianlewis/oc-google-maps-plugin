@@ -1,17 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianLewis\GoogleMaps\Components;
 
-use ApplicationException;
 use Cms\Classes\ComponentBase;
 use DamianLewis\GoogleMaps\Models\Settings;
 
 class GoogleMap extends ComponentBase
 {
+    /**
+     * @var string
+     */
     public $apiKey;
+
+    /**
+     * @var string
+     */
     public $style;
 
-    public function componentDetails()
+    public function componentDetails(): array
     {
         return [
             'name' => 'Google Map',
@@ -19,11 +27,11 @@ class GoogleMap extends ComponentBase
         ];
     }
 
-    public function defineProperties()
+    public function defineProperties(): array
     {
         return [
             'id' => [
-                'title' => 'ID',
+                'title' => 'Element ID',
                 'default' => 'googleMap',
                 'description' => 'The ID of the element the map should attached to.'
             ],
@@ -116,13 +124,9 @@ class GoogleMap extends ComponentBase
         ];
     }
 
-    public function onRun()
+    public function onRun(): void
     {
         $settings = Settings::instance();
-
-        if (!$settings->api_key) {
-            throw new ApplicationException('Google Maps API key is not configured.');
-        }
 
         $this->apiKey = $settings->api_key;
         $this->style = $settings->style;

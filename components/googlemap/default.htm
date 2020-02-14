@@ -3,32 +3,33 @@
      style="{% if (__SELF__.property('width')) %}width: {{ __SELF__.property('width') }};{% endif %}{% if (__SELF__.property('height')) %} height: {{ __SELF__.property('height') }};{% endif %}"></div>
 
 {% put gmscript %}
-<script>
-    function initMap() {
-        var latLng = {lat: {{ __SELF__.property('latitude') }}, lng: {{ __SELF__.property('longitude') }}};
+    <script>
+        function initMap() {
+            var latLng = {lat: {{ __SELF__.property('latitude') }}, lng: {{ __SELF__.property('longitude') }}};
 
-        var map = new google.maps.Map(document.getElementById('{{ __SELF__.property('id') }}'), {
-            center: latLng,
-            zoom: {{ __SELF__.property('zoom') }},
-            zoomControl: {{ __SELF__.property('zoomControl') }},
-            mapTypeControl: {{ __SELF__.property('mapTypeControl') }},
-            streetViewControl: {{ __SELF__.property('streetViewControl') }},
-            rotateControl: {{ __SELF__.property('rotateControl') }},
-            scaleControl: {{ __SELF__.property('scaleControl') }},
-            fullscreenControl: {{ __SELF__.property('fullscreenControl') }},
-            {% if (__SELF__.style) %}
-            styles: {{ __SELF__.style|raw }}
+            var map = new google.maps.Map(document.getElementById('{{ __SELF__.property('id') }}'), {
+                center: latLng,
+                zoom: {{ __SELF__.property('zoom') }},
+                zoomControl: {{ __SELF__.property('zoomControl') }},
+                mapTypeControl: {{ __SELF__.property('mapTypeControl') }},
+                streetViewControl: {{ __SELF__.property('streetViewControl') }},
+                rotateControl: {{ __SELF__.property('rotateControl') }},
+                scaleControl: {{ __SELF__.property('scaleControl') }},
+                fullscreenControl: {{ __SELF__.property('fullscreenControl') }},
+                {% if (__SELF__.style) %}
+                styles: {{ __SELF__.style|raw }}
+                {% endif %}
+            });
+
+            {% if __SELF__.property('showMarker') %}
+            new google.maps.Marker({
+                position: latLng,
+                map: map,
+                {% if __SELF__.property('icon') %}icon: '{{ __SELF__.property('icon') }}'{% endif %}
+            });
             {% endif %}
-        });
-
-        {% if (__SELF__.property('showMarker')) and (__SELF__.property('icon')) %}
-        new google.maps.Marker({
-            position: latLng,
-            map: map,
-            icon: '{{ __SELF__.property('icon') }}'
-        });
-        {% endif %}
-    }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap" async defer></script>
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ __SELF__.apiKey }}&callback=initMap" async
+            defer></script>
 {% endput %}

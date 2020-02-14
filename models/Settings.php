@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace DamianLewis\GoogleMaps\Models;
 
 use Model;
@@ -13,8 +15,6 @@ class Settings extends Model
     public $implement = [
         SettingsModel::class
     ];
-
-    public $requiredPermissions = ['damianlewis.googlemaps.configure'];
 
     public $settingsCode = 'damianlewis_googlemaps_settings';
 
